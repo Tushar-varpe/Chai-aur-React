@@ -17,7 +17,7 @@ function App() {
     if(charAllowed) str += "!@#$%^&*-+{}[]?~"
 
     for (let i = 1; i <= length; i++){
-      let char= Math.floor(Math.random()* str.length+1) 
+      let char= Math.floor(Math.random()* str.length) 
 
       pass += str.charAt(char)
     }
@@ -69,16 +69,16 @@ function App() {
     max={100}
     value={length}
     className='cursor-pointer'
-    onChange={(e) =>{setLength(e.target.value)}}
+    onChange={(e) =>{setLength(Number(e.target.value))}}
     />
-    <lable><span className="text-white">
+    <label className="text-white">
   Length: {length}
-</span></lable>
+</label>
   </div>
     <div className="flex items-center gap-x-1 bg-lime-500 ">
     <input
     type="checkbox"
-    defaultChecked={numberAllowed}
+    Checked={numberAllowed}
     id="numberInput"
     onChange={() => {
       setNumberAllowed((prev) => !prev)
@@ -86,21 +86,21 @@ function App() {
 
     }
     />
-    <lable htmlFor="numberInput">Number</lable>
+    <label htmlFor="numberInput">Number</label>
 </div>
 
 <div className="flex items-center gap-x-1 bg-lime-500 ">
     <input
     type="checkbox"
-    defaultChecked={charAllowed}
-    id="numberInput"
+    Checked={charAllowed}
+    id="characterInput"
     onChange={() => {
-      setNumberAllowed((prev) => !prev)
+      setCharAllowed((prev) => !prev)
     }
 
     }
     />
-    <lable htmlFor="characterInput">Character</lable>
+    <label htmlFor="characterInput">Character</label>
 </div>
 
     </div>
